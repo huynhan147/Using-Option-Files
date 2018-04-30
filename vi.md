@@ -9,9 +9,9 @@ Hầu hết các chương trình MySQL có thể đọc các tùy chọn khởi 
 
 Để xác định xem một chương trình có đọc các file tùy chọn hay không, hãy gọi nó bằng tùy chọn `\--help` . (Đối với [**mysqld**][1], sử dụng [`\--verbose`][2] và [`\--help`][3].) Nếu chương trình đọc các file tùy chọn, thông báo trợ giúp cho biết file nào sẽ hiển thị và nhóm tùy chọn nào nhận ra.
 
-Ghi chú 
+> Ghi chú 
 
-Một chương trình MySQL bắt đầu bằng tùy chọn `\--no-defaults` không đọc các file tùy chọn nào ngoài `.mylogin.cnf`. 
+> Một chương trình MySQL bắt đầu bằng tùy chọn `\--no-defaults` không đọc các file tùy chọn nào ngoài `.mylogin.cnf`. 
 
 Nhiều file tùy chọn là các file văn bản thuần túy, được tạo bằng bất kỳ trình soạn thảo văn bản nào. Ngoại lệ là file `.mylogin.cnf` chứa các tùy chọn đường dẫn đăng nhập. Đây là một file được mã hóa được tạo bởi tiện ích [**mysql_config_editor**][4]. Xem [Mục 4.6.6, "**mysql_config_editor** — Tiện ích cấu hình MySQL"][4]. Một "đường dẫn đăng nhập" là một nhóm tùy chọn chỉ cho phép một số tùy chọn nhất định:  `host`, `user`, `password`, `port` và `socket`.  Chương trình khách hàng chỉ định đường dẫn đăng nhập nào được đọc từ `.mylogin.cnf` bằng cách sử dụng tùy chọn [`\--login-path`][5]. 
 
@@ -48,9 +48,9 @@ _`BASEDIR`_ đại diện cho thư mục cài đặt cơ sở MySQL. Khi MySQL 5
 
 Trên các hệ thống giống Unix và Unix, các chương trình MySQL đọc các tùy chọn khởi động từ các file được hiển thị trong bảng sau, theo thứ tự được chỉ định (các file được liệt kê đầu tiên được đọc trước tiên, các file đọc sau được ưu tiên).
 
-Ghi chú 
+> Ghi chú 
 
-Trên các nền tảng Unix, MySQL bỏ qua các file cấu hình có thể ghi bởi bất kỳ ai. Đây là cố ý như một biện pháp an ninh. 
+> Trên các nền tảng Unix, MySQL bỏ qua các file cấu hình có thể ghi bởi bất kỳ ai. Đây là cố ý như một biện pháp an ninh. 
 
 **Bảng 4.2 Các file tùy chọn đọc trên các hệ điều hành Unix và giống Unix**
 
@@ -170,9 +170,9 @@ Có thể sử dụng trực tiếp `! Include` trong các file tùy chọn đ�
 
 MySQL không đảm bảo về thứ tự các file tùy chọn trong thư mục sẽ được đọc.
 
-Ghi chú 
+> Ghi chú 
 
-Bất cứ file nào được tìm thấy và thêm vào bằng cách sử dụng chỉ thị  `!includedir` trong các hệ điều hành _phải_ có tên file kết thục bằng `.cnf`. Trên Windows, chỉ thị này sẽ kiểm tra các file với phần mở rộng là `.ini` hoặc `.cnf`. 
+> Bất cứ file nào được tìm thấy và thêm vào bằng cách sử dụng chỉ thị  `!includedir` trong các hệ điều hành _phải_ có tên file kết thục bằng `.cnf`. Trên Windows, chỉ thị này sẽ kiểm tra các file với phần mở rộng là `.ini` hoặc `.cnf`. 
 
 Viết nội dung của các file tùy chọn được thêm giống như bất kỳ file tùy chọn nào khác. Tức là, nó phải chứa các nhóm tùy chọn, mỗi nhóm đứng trước một dòng `[_`group`_]` chỉ ra chương trình mà các tùy chọn áp dụng. 
 
