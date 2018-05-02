@@ -15,11 +15,11 @@ Hầu hết các chương trình MySQL có thể đọc các tùy chọn khởi 
 
 Nhiều file tùy chọn là các file văn bản thuần túy, được tạo bằng bất kỳ trình soạn thảo văn bản nào. Ngoại lệ là file `.mylogin.cnf` chứa các tùy chọn đường dẫn đăng nhập. Đây là một file được mã hóa được tạo bởi tiện ích [**mysql_config_editor**][4]. Xem [Mục 4.6.6, "**mysql_config_editor** — Tiện ích cấu hình MySQL"][4]. Một "đường dẫn đăng nhập" là một nhóm tùy chọn chỉ cho phép một số tùy chọn nhất định:  `host`, `user`, `password`, `port` và `socket`.  Chương trình khách hàng chỉ định đường dẫn đăng nhập nào được đọc từ `.mylogin.cnf` bằng cách sử dụng tùy chọn [`\--login-path`][5]. 
 
-Để chỉ định tên file đường dẫn đăng nhập thay thế, hãy đặt biến môi trường  `MYSQL_TEST_LOGIN_FILE`. Biến này được sử dụng bởi tiện ích thử nghiệm **mysql-test-run.pl**, nhưng cũng được nhận diện bởi [**mysql_config_editor**][4] và bởi các máy khách MySQL như [**mysql**][6], [**mysqladmin**][7], v.v. 
+Để chỉ định tên file đường dẫn đăng nhập thay thế, hãy đặt biến môi trường  `MYSQL_TEST_LOGIN_FILE`. Biến này được sử dụng bởi tiện ích thử nghiệm **mysql-test-run.pl**, nhưng cũng được xác định bởi [**mysql_config_editor**][4] và bởi các máy khách MySQL như [**mysql**][6], [**mysqladmin**][7], v.v. 
 
 MySQL tìm kiếm các file tùy chọn theo thứ tự được mô tả trong phần thảo luận sau và đọc bất kỳ file nào tồn tại. Nếu một file tùy chọn bạn muốn sử dụng không tồn tại, hãy tạo nó bằng cách sử dụng phương thức thích hợp, như được thảo luận. 
 
-Trên Windows, các chương trình MySQL đọc các tùy chọn khởi động từ các file được hiển thị trong bảng sau, theo thứ tự được chỉ định (các file được liệt kê đầu tiên được đọc trước tiên, các file được đọc sau được ưu tiên). 
+Trên Windows, các chương trình MySQL đọc các tùy chọn khởi động từ các file được hiển thị trong bảng sau, theo thứ tự được chỉ định (các file được liệt kê đầu tiên được đọc trước tiên, các file được đọc sau theo thứ tự ưu tiên). 
 
 **Bảng 4.1 Các file tùy chọn đọc trên các hệ thống Window**
 
@@ -34,7 +34,7 @@ Trên Windows, các chương trình MySQL đọc các tùy chọn khởi động
 
 Trong bảng trước, `%PROGRAMDATA%` đại diện cho thư mục hệ thống file chứa dữ liệu ứng dụng cho tất cả người dùng trên máy chủ lưu trữ. Đường dẫn này mặc định là `C:ProgramData` trên Microsoft Windows Vista trở lên, và `C:Documents and SettingsAll UsersApplication Data` trên các phiên bản cũ hơn của Microsoft Windows. 
 
-`%WINDIR%` represents the location of your Windows directory. This is commonly `C:WINDOWS`. Use the following command to determine its exact location from the value of the `WINDIR` environment variable: 
+`%WINDIR%` đại diện cho vị trí thư mục của Windows. Nó thường là `C:WINDOWS`. Sử dụng câu lệnh sau đây để xác định vị trí đưa ra ra từ giá trị của biến môi trường `WINDIR`: 
     
     
     C:> echo %WINDIR%
@@ -46,7 +46,7 @@ Trong bảng trước, `%PROGRAMDATA%` đại diện cho thư mục hệ thống
 
 _`BASEDIR`_ đại diện cho thư mục cài đặt cơ sở MySQL. Khi MySQL 5.7 đã được cài đặt bằng cách sử dụng MySQL Installer, đường dẫn thường là `C:_`PROGRAMDIR`_MySQLMySQL 5.7 Server` trong đó _`PROGRAMDIR`_ đại diện cho thư mục chương trình (thường là`Program Files` trên các phiên bản tiếng Anh của Windows), [Phần 2.3.3, "Trình cài đặt MySQL cho Windows"] [9]. 
 
-Trên các hệ thống giống Unix và Unix, các chương trình MySQL đọc các tùy chọn khởi động từ các file được hiển thị trong bảng sau, theo thứ tự được chỉ định (các file được liệt kê đầu tiên được đọc trước tiên, các file đọc sau được ưu tiên).
+Trên các hệ thống Unix và giống Unix, các chương trình MySQL đọc các tùy chọn khởi động từ các file được hiển thị trong bảng sau, theo thứ tự được chỉ định (các file được liệt kê đầu tiên được đọc trước tiên, các file đọc sau theo thứ tự ưu tiên).
 
 > Ghi chú 
 
